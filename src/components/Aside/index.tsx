@@ -8,6 +8,7 @@ export function Aside() {
             <Logo src={logoImg} alt='logo' />
             <strong>Relatório de saúde em gráficos</strong>
             <span>Em poucos segundos, transforme os seus dados de saúde em gráficos de fácil leitura.</span>
+            <img src={runImg} alt='running woman' />
         </Container>
     )
 }
