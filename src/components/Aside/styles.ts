@@ -24,6 +24,14 @@ export const Container = styled.div`
         margin-right: 15px;
         line-break: normal;
     }
+    img:last-of-type{
+        position: absolute;
+        bottom: 0px;
+        left:0px;
+
+        max-width: 15%;
+        mix-blend-mode: multiply;
+    }
 `;
 
 export const Logo = styled.img`
