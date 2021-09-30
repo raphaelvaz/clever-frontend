@@ -4,6 +4,7 @@ export const GlobalStyle = createGlobalStyle`
 
 :root{
     --background: #E5E5E5;
+    --backgroundAside: linear-gradient(180deg, #1482FC 0%, #9513FB 100%);
     --asideText: #ffffff;
     --textHeading: #27272E;
     --textBody: #425466;
