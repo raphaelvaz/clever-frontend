@@ -9,11 +9,6 @@ export const Container = styled.div`
 
     background: var(--backgroundAside);
 
-    img{
-        width: 12rem;
-        padding: 25px 0px 0px 25px;
-    }
-
     strong{
         max-width: 290px;
         color: var(--asideText);
@@ -21,4 +16,9 @@ export const Container = styled.div`
         line-height: 2.5rem;
         margin: 60px;
     }
+`;
+
+export const Logo = styled.img`
+    width: 12rem;
+    padding: 25px 0px 0px 25px;
 `;
