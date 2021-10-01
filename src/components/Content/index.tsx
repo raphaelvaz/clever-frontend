@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { Container, FormArea, HourSelectContainer } from './styles'
 
 export function Content() {
-
+    const [selectedDay, setSelectedDay] = useState('');
+    const [selectedHour, setSelectedHour] = useState();
 
     return (
         <Container>
@@ -17,17 +18,23 @@ export function Content() {
                     <input name="birthDate" type="date" />
 
                     <label htmlFor="date">Para qual dia você deseja gerar o gráfico de saúde?</label>
-                    <input name="date" type="date" />
-                    <label htmlFor="date">Selecione a hora para preencher os dados</label>
+                    <input name="date" type="date" value={selectedDay} onChange={(e) => setSelectedDay(e.target.value)} />
 
-                    <HourSelectContainer>
-                        <div>02:00</div>
-                        <div>06:00</div>
-                        <div>10:00</div>
-                        <div>14:00</div>
-                        <div>18:00</div>
-                        <div>22:00</div>
-                    </HourSelectContainer>
+                    {selectedDay && (
+                        <>
+                            <label htmlFor="date">Selecione a hora para preencher os dados</label>
+
+                            <HourSelectContainer>
+                                <div>02:00</div>
+                                <div>06:00</div>
+                                <div>10:00</div>
+                                <div>14:00</div>
+                                <div>18:00</div>
+                                <div>22:00</div>
+                            </HourSelectContainer>
+                        </>
+                    )}
+
                     <button type="submit">Gerar Diário de Saúde</button>
                 </form>
             </FormArea>
