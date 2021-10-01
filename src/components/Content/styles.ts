@@ -53,20 +53,7 @@ export const FormArea = styled.div`
             }
         }
         button{
-            width: 196px;
-            height: 46px;
-
-            align-self: center;
-
-            border-radius: 50px;
-            border:none;
             
-            background-color: var(--PrimaryColor);
-            color: var(--asideText);
-
-            font-weight: 600;
-
-            margin-top: 30px;
         }
     }
 `;
@@ -86,4 +73,21 @@ export const HourSelectContainer = styled.div`
 
         cursor: pointer;
     }
+`;
+
+export const Button = styled.button`
+    width: 196px;
+    height: 46px;
+
+    align-self: center;
+
+    border-radius: 50px;
+    border:none;
+            
+    background-color: var(--PrimaryColor);
+    color: var(--asideText);
+
+    font-weight: 600;
+
+    margin-top: 30px;
 `;

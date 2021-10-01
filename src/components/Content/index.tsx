@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { Container, FormArea, HourSelectContainer } from './styles'
+import { Container, FormArea, HourSelectContainer, Button } from './styles'
 
 export function Content() {
     const [selectedDay, setSelectedDay] = useState('');
-    const [selectedHour, setSelectedHour] = useState();
+    const [selectedHour, setSelectedHour] = useState('');
 
     return (
         <Container>
@@ -23,9 +23,8 @@ export function Content() {
                     {selectedDay && (
                         <>
                             <label htmlFor="date">Selecione a hora para preencher os dados</label>
-
                             <HourSelectContainer>
-                                <div>02:00</div>
+                                <div onClick={() => setSelectedHour('02:00')}>02:00</div>
                                 <div>06:00</div>
                                 <div>10:00</div>
                                 <div>14:00</div>
@@ -35,7 +34,7 @@ export function Content() {
                         </>
                     )}
 
-                    <button type="submit">Gerar Diário de Saúde</button>
+                    <Button type="submit">Gerar Diário de Saúde</Button>
                 </form>
             </FormArea>
         </Container>
