@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Container, FormArea, HourSelectContainer, Button, RadioBox } from './styles'
 
 export function Content() {
+    const [name, setName] = useState('');
+    const [birthDate, setBirthDate] = useState('');
     const [selectedDay, setSelectedDay] = useState('');
     const [selectedHour, setSelectedHour] = useState('');
 
@@ -12,10 +14,10 @@ export function Content() {
                 <span>Crie seu relatório diário de saúde</span>
                 <form>
                     <label htmlFor="name">Nome completo</label>
-                    <input name="name" type="text" />
+                    <input name="name" value={name} onChange={(e) => setName(e.target.value)} type="text" />
 
                     <label htmlFor="birthDate">Data de nascimento</label>
-                    <input name="birthDate" type="date" />
+                    <input name="birthDate" value={birthDate} onChange={(e) => setBirthDate(e.target.value)} type="date" />
 
                     <label htmlFor="date">Para qual dia você deseja gerar o gráfico de saúde?</label>
                     <input name="date" type="date" value={selectedDay} onChange={(e) => setSelectedDay(e.target.value)} />
