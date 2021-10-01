@@ -24,6 +24,10 @@ export function Content() {
 
     const [metrics, setMetrics] = useState<Metric[]>([]);
 
+    const [isLoading, setIsLoading] = useState(false);
+
+    const [storageMetrics, setStorageMetrics] = useState([]);
+
 
     const metricDate = useMemo(() => {
         const date = `${selectedDay} ${selectedHour}`
@@ -47,6 +51,7 @@ export function Content() {
 
     async function handleSubmit(event: FormEvent) {
         event.preventDefault();
+        setIsLoading(true);
 
         const accountResponse: any = await api.post('/signup', { name, birthDate })
 
@@ -54,9 +59,11 @@ export function Content() {
 
         console.log({ account_id: id, metrics })
 
-        //const metricResponse = await api.post('/metrics', { account_id: id, metrics })
+        const metricResponse: any = await api.post('/metrics', { account_id: id, metrics })
 
-        //console.log(metricResponse.data)
+        setStorageMetrics(metricResponse.data);
+
+        setIsLoading(false);
     }
 
     return (
@@ -107,7 +114,7 @@ export function Content() {
                         </>
                     )}
 
-                    <Button type="submit">Gerar Diário de Saúde</Button>
+                    <Button disabled={isLoading} type="submit">{isLoading ? 'Carregando...' : 'Gerar Diário de Saúde'}</Button>
                 </form>
             </FormArea>
         </Container>
