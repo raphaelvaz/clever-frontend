@@ -38,14 +38,16 @@ export const FormArea = styled.div`
         font-size:14px;
         line-height: 2rem;
         }
-        input{
-            width: 80%;
-            height: 46px;
 
+        input{
+            height: 46px;
             border-radius: 6px;
             border: 1px solid #E1E8FF;
-
             padding: 10px;
+        }
+        label + input{
+            width: 80%;
+
             margin-bottom: 20px;
 
             &[type=date]::-webkit-datetime-edit{
