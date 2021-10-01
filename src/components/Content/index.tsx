@@ -1,7 +1,8 @@
-import { useMemo, useState } from 'react';
+import { FormEvent, useMemo, useState } from 'react';
 import { Container, FormArea, HourSelectContainer, Button, RadioBox, MetricsContainer } from './styles'
 import heartIcon from '../../assets/heartRate.svg'
 import pressureIcon from '../../assets/group.svg'
+import { api } from '../../services/api';
 
 interface Metric {
     date: string;
@@ -37,8 +38,25 @@ export function Content() {
             setBpm('');
             setPamin('');
             setPamax('');
+        } else {
+            setMetrics([...metrics, { date: metricDate, bpm: Number(bpm), pamin: Number(pamin), pamax: Number(pamax) }])
+            setPagination(pagination + 1)
         }
 
+    }
+
+    async function handleSubmit(event: FormEvent) {
+        event.preventDefault();
+
+        const accountResponse: any = await api.post('/signup', { name, birthDate })
+
+        const { id } = accountResponse.data;
+
+        console.log({ account_id: id, metrics })
+
+        //const metricResponse = await api.post('/metrics', { account_id: id, metrics })
+
+        //console.log(metricResponse.data)
     }
 
     return (
@@ -46,7 +64,7 @@ export function Content() {
             <FormArea>
                 <h2>Diário de saúde</h2>
                 <span>Crie seu relatório diário de saúde</span>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <label htmlFor="name">Nome completo</label>
                     <input name="name" value={name} onChange={(e) => setName(e.target.value)} type="text" />
 
@@ -84,7 +102,7 @@ export function Content() {
                                     <input name="pamin" type="text" value={pamin} onChange={(e) => setPamin(e.target.value)} />
                                     <input name="pamax" type="text" value={pamax} onChange={(e) => setPamax(e.target.value)} />
                                 </div>
-                                <button type='button' onClick={handleNext}>Próximo</button>
+                                <button type='button' disabled={pagination > 6} onClick={handleNext}>{pagination < 6 ? 'Próximo' : 'Finalizar'}</button>
                             </MetricsContainer>
                         </>
                     )}
