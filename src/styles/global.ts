@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components'
 export const GlobalStyle = createGlobalStyle`
 
 :root{
-    --background: #E5E5E5;
+    --background: #F2F2F2;
     --backgroundAside: linear-gradient(180deg, #1482FC 0%, #9513FB 100%);
     --asideText: #ffffff;
     --textHeading: #27272E;
@@ -13,6 +13,7 @@ export const GlobalStyle = createGlobalStyle`
     --PrimaryColor:#3962FC;
     --ButtonPaginationBackgroundColor: #E1E8FF;
     --ButtonPaginationColor:#4C6FFF;
+    --SelectHourText:#5B5B5B;
 }
 
 *{

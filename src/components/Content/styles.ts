@@ -70,3 +70,20 @@ export const FormArea = styled.div`
         }
     }
 `;
+
+export const HourSelectContainer = styled.div`
+    display: flex;
+
+    div{
+
+        color: var(--SelectHourText);
+
+        border: 1px solid #E5E5E5;
+        border-radius:6px;
+
+        padding: 12px;
+        margin:8px;
+
+        cursor: pointer;
+    }
+`;
