@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import { Container, FormArea, HourSelectContainer, Button, RadioBox } from './styles'
+import { Container, FormArea, HourSelectContainer, Button, RadioBox, MetricsContainer } from './styles'
+import heartIcon from '../../assets/heartRate.svg'
+import pressureIcon from '../../assets/group.svg'
 
 export function Content() {
     const [name, setName] = useState('');
@@ -33,6 +35,24 @@ export function Content() {
                                 <RadioBox isSelected={selectedHour === '18:00'} type='button' onClick={() => setSelectedHour('18:00')}>18:00</RadioBox>
                                 <RadioBox isSelected={selectedHour === '22:00'} type='button' onClick={() => setSelectedHour('22:00')}>22:00</RadioBox>
                             </HourSelectContainer>
+
+                            <MetricsContainer>
+                                <div>
+                                    <div>
+                                        <img src={heartIcon} alt='heart icon' />
+                                        <strong>BPM</strong>
+                                    </div>
+                                    <input name="bpm" type="text" />
+                                </div>
+                                <div>
+                                    <div>
+                                        <img src={pressureIcon} alt='heart icon' />
+                                        <strong>PRESSÃO ARTERIAL</strong>
+                                    </div>
+                                    <input name="pamin" type="text" />
+                                    <input name="pamax" type="text" />
+                                </div>
+                            </MetricsContainer>
                         </>
                     )}
 
