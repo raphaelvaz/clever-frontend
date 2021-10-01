@@ -121,8 +121,17 @@ export const MetricsContainer = styled.div`
         input + input{
             margin-left: 12px;
         }
-        div{
-            flex:0.5;
-        }
+    }
+    button{
+        width:86px;
+        height: 26px;
+
+        align-self: end;
+        margin-top: 5px;
+
+        border:0;
+        border-radius: 6px;
+        background-color: var(--ButtonPaginationBackgroundColor);
+        color: var(--ButtonPaginationColor);
     }
 `;
