@@ -60,19 +60,6 @@ export const FormArea = styled.div`
 
 export const HourSelectContainer = styled.div`
     display: flex;
-
-    div{
-
-        color: var(--SelectHourText);
-
-        border: 1px solid #E5E5E5;
-        border-radius:6px;
-
-        padding: 12px;
-        margin:8px;
-
-        cursor: pointer;
-    }
 `;
 
 export const Button = styled.button`
@@ -90,4 +77,21 @@ export const Button = styled.button`
     font-weight: 600;
 
     margin-top: 30px;
+`;
+
+interface RadioBoxProps {
+    isSelected: boolean;
+}
+
+export const RadioBox = styled.button<RadioBoxProps>`
+
+        background-color: ${props => props.isSelected ? 'var(--PrimaryColor)' : 'transparent'};
+        color: ${props => props.isSelected ? 'var(--asideText)' : 'var(--SelectHourText)'};
+        border: 1px solid #E5E5E5;
+        border-radius:6px;
+
+        padding: 12px;
+        margin:8px;
+
+        cursor: pointer;
 `;

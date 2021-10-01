@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Container, FormArea, HourSelectContainer, Button } from './styles'
+import { Container, FormArea, HourSelectContainer, Button, RadioBox } from './styles'
 
 export function Content() {
     const [selectedDay, setSelectedDay] = useState('');
@@ -24,12 +24,12 @@ export function Content() {
                         <>
                             <label htmlFor="date">Selecione a hora para preencher os dados</label>
                             <HourSelectContainer>
-                                <div onClick={() => setSelectedHour('02:00')}>02:00</div>
-                                <div>06:00</div>
-                                <div>10:00</div>
-                                <div>14:00</div>
-                                <div>18:00</div>
-                                <div>22:00</div>
+                                <RadioBox isSelected={selectedHour === '02:00'} type='button' onClick={() => setSelectedHour('02:00')}>02:00</RadioBox>
+                                <RadioBox isSelected={selectedHour === '06:00'} type='button' onClick={() => setSelectedHour('06:00')}>06:00</RadioBox>
+                                <RadioBox isSelected={selectedHour === '10:00'} type='button' onClick={() => setSelectedHour('10:00')}>10:00</RadioBox>
+                                <RadioBox isSelected={selectedHour === '14:00'} type='button' onClick={() => setSelectedHour('14:00')}>14:00</RadioBox>
+                                <RadioBox isSelected={selectedHour === '18:00'} type='button' onClick={() => setSelectedHour('18:00')}>18:00</RadioBox>
+                                <RadioBox isSelected={selectedHour === '22:00'} type='button' onClick={() => setSelectedHour('22:00')}>22:00</RadioBox>
                             </HourSelectContainer>
                         </>
                     )}
