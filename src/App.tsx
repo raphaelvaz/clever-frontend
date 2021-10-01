@@ -1,8 +1,13 @@
 import React from 'react';
+import { Register } from './pages/Register';
+import { GlobalStyle } from './styles/global';
 
 function App() {
   return (
-    <h1>Hello clever</h1>
+    <>
+      <Register />
+      <GlobalStyle />
+    </>
   );
 }
 
