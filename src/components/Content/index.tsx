@@ -26,7 +26,6 @@ export function Content() {
 
     const metricDate = useMemo(() => {
         const date = `${selectedDay} ${selectedHour}`
-        console.log(metrics);
         return date;
     }, [selectedDay, selectedHour])
 
@@ -61,12 +60,12 @@ export function Content() {
                         <>
                             <label htmlFor="date">Selecione a hora para preencher os dados</label>
                             <HourSelectContainer>
-                                <RadioBox isSelected={pagination === 1 || pagination > 1} type='button'>02:00</RadioBox>
-                                <RadioBox isSelected={pagination === 2 || pagination > 2} type='button'>06:00</RadioBox>
-                                <RadioBox isSelected={pagination === 3 || pagination > 3} type='button'>10:00</RadioBox>
-                                <RadioBox isSelected={pagination === 4 || pagination > 4} type='button'>14:00</RadioBox>
-                                <RadioBox isSelected={pagination === 5 || pagination > 5} type='button'>18:00</RadioBox>
-                                <RadioBox isSelected={pagination === 6 || pagination > 6} type='button'>22:00</RadioBox>
+                                <RadioBox isSelected={pagination === 1 || pagination > 1}>02:00</RadioBox>
+                                <RadioBox isSelected={pagination === 2 || pagination > 2}>06:00</RadioBox>
+                                <RadioBox isSelected={pagination === 3 || pagination > 3}>10:00</RadioBox>
+                                <RadioBox isSelected={pagination === 4 || pagination > 4}>14:00</RadioBox>
+                                <RadioBox isSelected={pagination === 5 || pagination > 5}>18:00</RadioBox>
+                                <RadioBox isSelected={pagination === 6 || pagination > 6}>22:00</RadioBox>
                             </HourSelectContainer>
 
                             <MetricsContainer>
@@ -85,7 +84,7 @@ export function Content() {
                                     <input name="pamin" type="text" value={pamin} onChange={(e) => setPamin(e.target.value)} />
                                     <input name="pamax" type="text" value={pamax} onChange={(e) => setPamax(e.target.value)} />
                                 </div>
-                                <button type='button' onClick={handleNext}>próximo</button>
+                                <button type='button' onClick={handleNext}>Próximo</button>
                             </MetricsContainer>
                         </>
                     )}

@@ -85,7 +85,7 @@ interface RadioBoxProps {
     isSelected: boolean;
 }
 
-export const RadioBox = styled.button<RadioBoxProps>`
+export const RadioBox = styled.div<RadioBoxProps>`
 
         background-color: ${props => props.isSelected ? 'var(--PrimaryColor)' : 'transparent'};
         color: ${props => props.isSelected ? 'var(--asideText)' : 'var(--SelectHourText)'};
@@ -94,8 +94,6 @@ export const RadioBox = styled.button<RadioBoxProps>`
 
         padding: 12px;
         margin:8px;
-
-        cursor: pointer;
 `;
 
 export const MetricsContainer = styled.div`
