@@ -97,3 +97,34 @@ export const RadioBox = styled.button<RadioBoxProps>`
 
         cursor: pointer;
 `;
+
+export const MetricsContainer = styled.div`
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+
+    border: 1px solid #E5E5E5;
+    border-radius:6px;
+    padding: 20px;
+
+    div{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-bottom: 10px;
+
+        strong{
+            margin:0  38px 0 10px;
+        }
+        input{
+            width:130px;
+        }
+
+        input + input{
+            margin-left: 12px;
+        }
+        div{
+            flex:0.5;
+        }
+    }
+`;

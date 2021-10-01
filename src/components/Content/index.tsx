@@ -7,7 +7,7 @@ export function Content() {
     const [name, setName] = useState('');
     const [birthDate, setBirthDate] = useState('');
     const [selectedDay, setSelectedDay] = useState('');
-    const [selectedHour, setSelectedHour] = useState('');
+    const [selectedHour, setSelectedHour] = useState('02:00');
 
     return (
         <Container>
