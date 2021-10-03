@@ -11,7 +11,7 @@ interface Metric {
     pamax: number;
 }
 
-export function Content() {
+export function ContentForm() {
     const HOURS_AVAILABLE = ['02:00:00', '06:00:00', '10:00:00', '14:00:00', '18:00:00', '22:00:00']
     const [name, setName] = useState('');
     const [birthDate, setBirthDate] = useState('');

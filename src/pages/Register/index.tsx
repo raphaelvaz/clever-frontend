@@ -1,12 +1,12 @@
 import { Aside } from '../../components/Aside'
-import { Content } from '../../components/Content'
+import { ContentForm } from '../../components/ContentForm'
 import { Container } from './styles'
 
 export function Register() {
     return (
         <Container>
             <Aside />
-            <Content />
+            <ContentForm />
         </Container>
     )
 }
