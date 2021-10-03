@@ -13,11 +13,19 @@ interface AccountProviderProps {
     children: ReactNode
 }
 
+interface AccountApiReponse {
+    id: string;
+    name: string;
+    birth: string;
+    created_at: Date;
+    updated_at: Date;
+}
+
 type AccountInputData = Omit<Account, 'id' | 'createdAt' | 'updatedAt'>
 
 interface AccountContextData {
     account: Account;
-    createAccount: (accountInput: AccountInputData) => Promise<void>
+    createAccount: (accountInput: AccountInputData) => Promise<Account>
 }
 
 
@@ -26,11 +34,13 @@ const AccountContext = createContext<AccountContextData>({} as AccountContextDat
 export function AccountProvider({ children }: AccountProviderProps) {
     const [account, setAccount] = useState<Account>({} as Account);
 
-    async function createAccount(accountInput: AccountInputData): Promise<void> {
-        const response = await api.post('/signup', accountInput)
-        const StorageAccount = response.data as Account;
+    async function createAccount(accountInput: AccountInputData): Promise<Account> {
+        const response: any = await api.post('/signup', accountInput)
+        const { id, name, birth, created_at, updated_at } = response.data as AccountApiReponse;
+        const storageAccount = { id, name, birthDate: birth, createdAt: created_at, updatedAt: updated_at };
+        setAccount(storageAccount);
 
-        setAccount(StorageAccount);
+        return storageAccount;
     }
 
     return (

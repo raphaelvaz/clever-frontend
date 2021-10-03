@@ -2,7 +2,6 @@ import { FormEvent, useMemo, useState } from 'react';
 import { Container, FormArea, HourSelectContainer, Button, RadioBox, MetricsContainer } from './styles'
 import heartIcon from '../../assets/heartRate.svg'
 import pressureIcon from '../../assets/group.svg'
-import { api } from '../../services/api';
 import { useAccount } from '../../hooks/useAccount';
 
 interface Metric {
@@ -28,9 +27,6 @@ export function ContentForm() {
 
     const [isLoading, setIsLoading] = useState(false);
 
-    const [storageMetrics, setStorageMetrics] = useState([]);
-
-
     const metricDate = useMemo(() => {
         const date = `${selectedDay} ${selectedHour}`
         return date;
@@ -55,12 +51,9 @@ export function ContentForm() {
         event.preventDefault();
         setIsLoading(true);
 
-        await createAccount({ name, birthDate })
+        const account = await createAccount({ name, birthDate })
 
-
-        // const metricResponse: any = await api.post('/metrics', { account_id: id, metrics })
-
-        // setStorageMetrics(metricResponse.data);
+        console.log({ account_id: account.id, metrics });
 
         setIsLoading(false);
     }
