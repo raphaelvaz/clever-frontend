@@ -14,6 +14,7 @@ export const GlobalStyle = createGlobalStyle`
     --ButtonPaginationBackgroundColor: #E1E8FF;
     --ButtonPaginationColor:#4C6FFF;
     --SelectHourText:#5B5B5B;
+    --backgroundSvgButtons: #E5E5E5;
 }
 
 *{

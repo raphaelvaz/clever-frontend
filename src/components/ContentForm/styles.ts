@@ -54,9 +54,6 @@ export const FormArea = styled.div`
                 color: var(--textPlaceholder)
             }
         }
-        button{
-            
-        }
     }
 `;
 
