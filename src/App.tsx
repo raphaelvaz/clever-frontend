@@ -1,17 +1,20 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { AccountProvider } from './hooks/useAccount';
 import { MetricsProvider } from './hooks/useMetrics';
-import { Register } from './pages/Register';
+import { Routes } from './routes';
 import { GlobalStyle } from './styles/global';
 
 function App() {
   return (
-    <MetricsProvider>
-      <AccountProvider>
-        <Register />
-        <GlobalStyle />
-      </AccountProvider>
-    </MetricsProvider>
+    <BrowserRouter>
+      <MetricsProvider>
+        <AccountProvider>
+          <Routes />
+          <GlobalStyle />
+        </AccountProvider>
+      </MetricsProvider>
+    </BrowserRouter>
   );
 }
 
