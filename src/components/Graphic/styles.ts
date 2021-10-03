@@ -35,27 +35,27 @@ export const Container = styled.div`
     main{
         width: 70%;
         margin:auto;
+    }
+`;
 
-        button{
-            width:100px;
-            height: 45px;
+export const CustomButton = styled.button`
+    width:100px;
+    height: 45px;
 
+    margin-right: 10px;
+
+    border-radius: 4px;
+    border:0;
+
+    background-color: var(--backgroundSvgButtons);
+
+    div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg{
             margin-right: 10px;
-
-            border-radius: 4px;
-            border:0;
-
-            background-color: var(--backgroundSvgButtons);
-
-            div{
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
-                svg{
-                    margin-right: 10px;
-                }
-            }
         }
     }
 `;

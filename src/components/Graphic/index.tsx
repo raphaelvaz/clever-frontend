@@ -1,4 +1,4 @@
-import { Container } from './styles'
+import { Container, CustomButton } from './styles'
 import avatarImg from '../../assets/avatar.svg'
 import { Heart } from '../../assets/svgComponents/Heart'
 import { Group } from '../../assets/svgComponents/Group'
@@ -16,18 +16,18 @@ export function Graphic() {
                 </div>
             </header>
             <main>
-                <button>
+                <CustomButton>
                     <div>
                         <Heart fill={'#40465C'} />
                         <strong>BPM</strong>
                     </div>
-                </button>
-                <button>
+                </CustomButton>
+                <CustomButton>
                     <div>
                         <Group fill={'#40465C'} />
                         <strong>PA</strong>
                     </div>
-                </button>
+                </CustomButton>
             </main>
         </Container>
     )
