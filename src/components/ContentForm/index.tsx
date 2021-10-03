@@ -3,6 +3,7 @@ import { Container, FormArea, HourSelectContainer, Button, RadioBox, MetricsCont
 import heartIcon from '../../assets/heartRate.svg'
 import pressureIcon from '../../assets/group.svg'
 import { useAccount } from '../../hooks/useAccount';
+import { useMetrics } from '../../hooks/useMetrics';
 
 interface Metric {
     date: string;
@@ -13,6 +14,7 @@ interface Metric {
 
 export function ContentForm() {
     const { createAccount } = useAccount();
+    const { createMetrics } = useMetrics();
     const HOURS_AVAILABLE = ['02:00:00', '06:00:00', '10:00:00', '14:00:00', '18:00:00', '22:00:00']
     const [name, setName] = useState('');
     const [birthDate, setBirthDate] = useState('');
@@ -53,7 +55,7 @@ export function ContentForm() {
 
         const account = await createAccount({ name, birthDate })
 
-        console.log({ account_id: account.id, metrics });
+        await createMetrics({ account_id: account.id, metrics });
 
         setIsLoading(false);
     }
