@@ -3,6 +3,7 @@ import { Container, FormArea, HourSelectContainer, Button, RadioBox, MetricsCont
 import heartIcon from '../../assets/heartRate.svg'
 import pressureIcon from '../../assets/group.svg'
 import { api } from '../../services/api';
+import { useAccount } from '../../hooks/useAccount';
 
 interface Metric {
     date: string;
@@ -12,6 +13,7 @@ interface Metric {
 }
 
 export function ContentForm() {
+    const { createAccount } = useAccount();
     const HOURS_AVAILABLE = ['02:00:00', '06:00:00', '10:00:00', '14:00:00', '18:00:00', '22:00:00']
     const [name, setName] = useState('');
     const [birthDate, setBirthDate] = useState('');
@@ -53,15 +55,12 @@ export function ContentForm() {
         event.preventDefault();
         setIsLoading(true);
 
-        const accountResponse: any = await api.post('/signup', { name, birthDate })
+        await createAccount({ name, birthDate })
 
-        const { id } = accountResponse.data;
 
-        console.log({ account_id: id, metrics })
+        // const metricResponse: any = await api.post('/metrics', { account_id: id, metrics })
 
-        const metricResponse: any = await api.post('/metrics', { account_id: id, metrics })
-
-        setStorageMetrics(metricResponse.data);
+        // setStorageMetrics(metricResponse.data);
 
         setIsLoading(false);
     }
