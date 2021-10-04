@@ -13,7 +13,7 @@ export const Container = styled.div`
         margin-bottom: 50px;
 
         img{
-            margin-top: 6rem;
+            margin-top: 2rem;
         }
         strong{
             font-size: 1.5rem;
@@ -29,13 +29,25 @@ export const Container = styled.div`
             align-items: center;
             justify-content: center;
 
-            margin-top: 50px;
+            margin-top: 25px;
+            border-top: 1px solid #E4ECF7;
+            padding-top: 24px;
         }
     }
     main{
         width: 70%;
         margin:auto;
     }
+`;
+
+export const Content = styled.div`
+    width:80%;
+    margin:auto;
+    margin-top: 100px;
+    background-color: #ffffff;
+
+    box-shadow: 0px 0px 1px rgba(12, 26, 75, 0.24), 0px 3px 8px -1px rgba(50, 50, 71, 0.05);
+    border-radius: 16px;
 `;
 
 interface CustomButtonProps {
