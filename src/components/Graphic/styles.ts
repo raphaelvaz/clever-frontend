@@ -38,7 +38,11 @@ export const Container = styled.div`
     }
 `;
 
-export const CustomButton = styled.button`
+interface CustomButtonProps {
+    active: boolean;
+}
+
+export const CustomButton = styled.button<CustomButtonProps>`
     width:100px;
     height: 45px;
 
@@ -47,7 +51,8 @@ export const CustomButton = styled.button`
     border-radius: 4px;
     border:0;
 
-    background-color: var(--backgroundSvgButtons);
+    background: ${(props) => props.active ? 'var(--backgroundAside)' : 'var(--backgroundSvgButtons)'};
+    color:${(props) => props.active ? '#fff' : '#40465C'};
 
     div{
         display: flex;

@@ -2,8 +2,13 @@ import { Container, CustomButton } from './styles'
 import avatarImg from '../../assets/avatar.svg'
 import { Heart } from '../../assets/svgComponents/Heart'
 import { Group } from '../../assets/svgComponents/Group'
+import { useState } from 'react';
+
+type graphType = 'bpm' | 'pa'
 
 export function Graphic() {
+    const [type, setType] = useState<graphType>('bpm');
+
     return (
         <Container>
             <header>
@@ -16,15 +21,15 @@ export function Graphic() {
                 </div>
             </header>
             <main>
-                <CustomButton>
+                <CustomButton active={type === 'bpm'} onClick={() => setType('bpm')}>
                     <div>
-                        <Heart fill={'#40465C'} />
+                        <Heart fill={type === 'bpm' ? '#fff' : '#40465C'} />
                         <strong>BPM</strong>
                     </div>
                 </CustomButton>
-                <CustomButton>
+                <CustomButton active={type === 'pa'} onClick={() => setType('pa')} >
                     <div>
-                        <Group fill={'#40465C'} />
+                        <Group fill={type === 'pa' ? '#fff' : '#40465C'} />
                         <strong>PA</strong>
                     </div>
                 </CustomButton>
