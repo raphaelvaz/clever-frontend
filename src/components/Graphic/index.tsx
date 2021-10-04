@@ -2,15 +2,34 @@ import { Container, CustomButton, Content } from './styles'
 import avatarImg from '../../assets/avatar.svg'
 import { Heart } from '../../assets/svgComponents/Heart'
 import { Group } from '../../assets/svgComponents/Group'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Chart from 'react-google-charts';
 import { useAccount } from '../../hooks/useAccount';
+import { useMetrics } from '../../hooks/useMetrics';
 
 type graphType = 'bpm' | 'pa'
 
+type graphData = (string | number)[][] | (string | string)[][]
+
 export function Graphic() {
     const { account } = useAccount();
+    const { metrics } = useMetrics();
     const [type, setType] = useState<graphType>('bpm');
+    const [graphData, setGraphData] = useState<graphData>([]);
+
+    useEffect(() => {
+        if (type === 'bpm') {
+            const data = metrics.map(metric => {
+                return [new Date(metric.date).toLocaleTimeString(), metric.bpm]
+            });
+            setGraphData([...[['', '']], ...data]);
+        } else {
+            const data = metrics.map(metric => {
+                return [new Date(metric.date).toLocaleTimeString(), metric.pamin, metric.pamax]
+            });
+            setGraphData([...[['', '', '']], ...data]);
+        }
+    }, [type, metrics])
 
     return (
         <Container>
@@ -18,10 +37,10 @@ export function Graphic() {
                 <header>
                     <img src={avatarImg} alt='avatar' />
                     <strong>{account.name}</strong>
-                    <span> 39 anos</span>
+                    <span>{`${Math.floor(((Date.now() - new Date(account.birthDate).getTime()) / 31557600000))} anos`}</span>
                     <div>
                         <span>Diário de Saúde</span>
-                        <span>14/09/2021</span>
+                        <span>{new Date(metrics[0].date).toLocaleDateString()}</span>
                     </div>
                 </header>
                 <main>
@@ -44,15 +63,7 @@ export function Graphic() {
                         height={'288px'}
                         chartType="LineChart"
                         loader={<div>Loading Chart</div>}
-                        data={[
-                            ['', ''],
-                            [new Date('2021-09-17 02:00:00').toLocaleTimeString(), 88],
-                            [new Date('2021-09-17 06:00:00').toLocaleTimeString(), 76],
-                            [new Date('2021-09-17 10:00:00').toLocaleTimeString(), 90],
-                            [new Date('2021-09-17 14:00:00').toLocaleTimeString(), 110],
-                            [new Date('2021-09-17 18:00:00').toLocaleTimeString(), 99],
-                            [new Date('2021-09-17 22:00:00').toLocaleTimeString(), 103],
-                        ]}
+                        data={graphData}
                     />
                 </div>
             </Content>
