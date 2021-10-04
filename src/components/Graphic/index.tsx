@@ -17,7 +17,7 @@ export function Graphic() {
             <Content>
                 <header>
                     <img src={avatarImg} alt='avatar' />
-                    <strong>Maria José</strong>
+                    <strong>{account.name}</strong>
                     <span> 39 anos</span>
                     <div>
                         <span>Diário de Saúde</span>
